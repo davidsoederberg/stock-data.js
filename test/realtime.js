@@ -1,7 +1,6 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
-const realtime = require('../src/api/realtime');
-const fetchData = require('../src/api/fetchData');
+const realtime = require('../src/functions/realtime');
 require('dotenv').config();
 
 const API_TOKEN_ENV = process.env.API_TOKEN_TEST;
@@ -9,12 +8,12 @@ const API_TOKEN_ENV = process.env.API_TOKEN_TEST;
 chai.use(chaiAsPromised);
 const { expect } = chai;
 
-describe('testing realtime api function', () => {
+describe('testing realtime function', () => {
   describe('testing stock calls', () => {
     it('should be rejected with error because symbols are not provided', () => {
       expect(realtime({ API_TOKEN: 'DEMO' })).to.be.rejectedWith(Error);
     });
-    it('should be rejected with error because symbols are not provided', () => {
+    it('should be rejected with error because an API_TOKEN is not provided', () => {
       expect(realtime({ symbols: ['AAPL', 'MSFT', 'HSBA.L'] })).to.be.rejectedWith(Error);
     });
     it('should return data of one stock without error', async () => {
@@ -51,11 +50,6 @@ describe('testing realtime api function', () => {
       expect(data.symbols_requested).to.be.equals(3);
       expect(data.symbols_returned).to.be.equals(3);
       expect(data.data).to.be.length(3);
-    });
-  });
-  describe('testing fund calls', () => {
-    it('should give error because URL is invalid', () => {
-      expect(fetchData('abc', '123', 'xyz')).to.be.rejectedWith(Error);
     });
   });
 });

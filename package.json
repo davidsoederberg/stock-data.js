@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "pretest": "npm run lint",
-    "test": "nyc mocha --require @babel/register --require @babel/polyfill --recursive",
+    "test": "nyc mocha --require @babel/register --require @babel/polyfill --recursive --timeout 5000",
     "test:prod": "cross-env BABEL_ENV=production npm run test",
     "test:only": "nyc mocha --require @babel/register --require @babel/polyfill --recursive",
     "test:watch": "npm test -- --watch",
@@ -30,7 +30,8 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "axios": "^0.18.0",
-    "dotenv": "^6.2.0"
+    "dotenv": "^6.2.0",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
