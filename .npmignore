@@ -25,3 +25,6 @@ CHANGELOG.md
 .eslintrc
 .babelrc
 .gitignore
+
+# env variables
+.env
