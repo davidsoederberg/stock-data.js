@@ -8,12 +8,12 @@ const API_TOKEN_ENV = process.env.API_TOKEN_TEST;
 chai.use(chaiAsPromised);
 const { expect } = chai;
 
-describe('testing realtime functions functions', () => {
+describe('testing realtime function', () => {
   describe('testing stock calls', () => {
     it('should be rejected with error because symbols are not provided', () => {
       expect(realtime({ API_TOKEN: 'DEMO' })).to.be.rejectedWith(Error);
     });
-    it('should be rejected with error because symbols are not provided', () => {
+    it('should be rejected with error because an API_TOKEN is not provided', () => {
       expect(realtime({ symbols: ['AAPL', 'MSFT', 'HSBA.L'] })).to.be.rejectedWith(Error);
     });
     it('should return data of one stock without error', async () => {

@@ -1,5 +1,7 @@
 const fetchData = require('../util/fetchData');
 const makeQueries = require('../util/makeQueries');
+const formatOptions = require('../util/formatOptions');
+
 
 const STOCK_URL = 'https://www.worldtradingdata.com/api/v1/stock?symbol=';
 const FUND_URL = 'https://www.worldtradingdata.com/api/v1/mutualfund?symbol=';
@@ -14,8 +16,11 @@ function mergeData(fetchedData) {
   return mergedData;
 }
 
-async function realtime({ symbols, API_TOKEN, FUND }) {
+async function realtime({
+  symbols, API_TOKEN, FUND, options
+}) {
   const URL = FUND ? FUND_URL : STOCK_URL;
+  const optionQuery = formatOptions(options);
   if (symbols === undefined) {
     throw new Error('No symbols provided, add symbols as an argument');
   }
@@ -26,12 +31,12 @@ async function realtime({ symbols, API_TOKEN, FUND }) {
     const data = [];
     const queries = await makeQueries(symbols);
     for (const query of queries) { // eslint-disable-line no-restricted-syntax
-      data.push(fetchData(URL, query, API_TOKEN));
+      data.push(fetchData(URL, query, optionQuery, API_TOKEN));
     }
     const fetchedData = await Promise.all(data);
     return mergeData(fetchedData);
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 }
 
