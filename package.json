@@ -1,5 +1,5 @@
 {
-  "name": "stock-datajs",
+  "name": "stock-data.js",
   "version": "1.0.0",
   "description": "Data for stocks supported by WorldTradingData. (Wrapper for WorldTradingData)",
   "main": "./lib/index.js",
@@ -20,7 +20,17 @@
     "type": "git",
     "url": "git+https://github.com/flexdinesh/npm-module-boilerplate.git"
   },
-  "keywords": [],
+  "keywords": [
+    "stock",
+    "stocks",
+    "data",
+    "real time",
+    "realtime",
+    "historical",
+    "market",
+    "worldtradingdata",
+    "api"
+  ],
   "author": "David Söderberg <soederbergdavid@gmail.com>",
   "license": "MIT",
   "bugs": {
