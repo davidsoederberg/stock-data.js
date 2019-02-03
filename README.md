@@ -10,7 +10,7 @@
 </p>
 
 
-> :bulb: This library is new, so there might be issues. If you find any, please report them at 
+> :bulb: This library is new, so there might be issues. If you find any, please report them at the
 [issues](https://github.com/davidsoederberg/stock-data.js/issues) section.
 
 ## Features
