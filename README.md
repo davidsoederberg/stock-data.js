@@ -36,6 +36,7 @@ Go to [WorldTradingData](https://www.worldtradingdata.com/) and obtain an API-to
 ## Usage
 
 Because the API-token is personal I would recommend using the token as an enviroment variable.
+Visit [documentation](https://www.worldtradingdata.com/documentation) for available options.
 
 Each example uses:
 ```js
