@@ -1,7 +1,7 @@
 {
-  "name": "stock-datajs",
+  "name": "stock-data.js",
   "version": "1.0.0",
-  "description": "Data for stocks supported by WorldTradingData. (Wrapper for WorldTradingData)",
+  "description": "Easy to use stock market API for Node.js using WorldTradingData as source.",
   "main": "./lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
@@ -18,9 +18,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flexdinesh/npm-module-boilerplate.git"
+    "url": "git+https://github.com/davidsoederberg/stock-data.js.git"
   },
-  "keywords": [],
+  "keywords": [
+    "stock",
+    "stocks",
+    "data",
+    "real time",
+    "realtime",
+    "historical",
+    "market",
+    "worldtradingdata",
+    "api"
+  ],
   "author": "David Söderberg <soederbergdavid@gmail.com>",
   "license": "MIT",
   "bugs": {
