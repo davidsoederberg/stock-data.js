@@ -1,7 +1,7 @@
 {
   "name": "stock-data.js",
   "version": "1.0.0",
-  "description": "Data for stocks supported by WorldTradingData. (Wrapper for WorldTradingData)",
+  "description": "Easy to use stock market API for Node.js using WorldTradingData as source.",
   "main": "./lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flexdinesh/npm-module-boilerplate.git"
+    "url": "git+https://github.com/davidsoederberg/stock-data.js.git"
   },
   "keywords": [
     "stock",
@@ -54,6 +54,7 @@
     "babel-preset-minify": "^0.3.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.2",
     "cross-env": "^5.1.3",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
