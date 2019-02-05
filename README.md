@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href='https://www.npmjs.com/package/stock-data.js'><img src='https://img.shields.io/npm/v/stock-data.js.svg' alt='Build status' /></a>
-  <a href='https://travis-ci.com/davidsoederberg/stock-data'><img src='https://travis-ci.com/davidsoederberg/stock-data.svg?branch=master' alt='Build status' /></a>
+  <a href='https://travis-ci.com/davidsoederberg/stock-data'><img src='https://travis-ci.com/davidsoederberg/stock-data.js.svg?branch=master?branch=master' alt='Build status' /></a>
  <a href='https://coveralls.io/github/davidsoederberg/stock-data?branch=master'><img src='https://coveralls.io/repos/github/davidsoederberg/stock-data/badge.svg?branch=master' alt='Coverage Status' /></a>
 </p>
 
