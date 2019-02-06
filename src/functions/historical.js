@@ -12,7 +12,11 @@ async function historical({ symbol, API_TOKEN, options }) {
   }
   try {
     const optionQuery = formatOptions(options);
-    return await fetchData(URL, symbol, optionQuery, API_TOKEN);
+    const fetchedData = await fetchData(URL, symbol, optionQuery, API_TOKEN);
+    if (fetchedData.message === 'Invalid API Key.') {
+      throw new Error('Invalid API Token');
+    }
+    return fetchedData;
   } catch (error) {
     throw error;
   }
