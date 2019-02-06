@@ -34,9 +34,9 @@
   "author": "David Söderberg <soederbergdavid@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davidsoederberg/stock-data/issues"
+    "url": "https://github.com/davidsoederberg/stock-data.js/issues"
   },
-  "homepage": "https://github.com/davidsoederberg/stock-data",
+  "homepage": "https://github.com/davidsoederberg/stock-data.js",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "axios": "^0.18.0",

@@ -13,6 +13,9 @@ describe('testing realtime function', () => {
     it('should be rejected with error because symbols are not provided', () => {
       expect(realtime({ API_TOKEN: 'DEMO' })).to.be.rejectedWith(Error);
     });
+    it('should be rejected with error because API_TOKEN is invalid', () => {
+      expect(realtime({ symbols: ['AAPL', 'MSFT', 'HSBA.L'], API_TOKEN: '123' })).to.be.rejectedWith(Error);
+    });
     it('should be rejected with error because an API_TOKEN is not provided', () => {
       expect(realtime({ symbols: ['AAPL', 'MSFT', 'HSBA.L'] })).to.be.rejectedWith(Error);
     });

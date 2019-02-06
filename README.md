@@ -6,7 +6,7 @@
 <p align="center">
   <a href='https://www.npmjs.com/package/stock-data.js'><img src='https://img.shields.io/npm/v/stock-data.js.svg' alt='Build status' /></a>
   <a href='https://travis-ci.com/davidsoederberg/stock-data'><img src='https://travis-ci.com/davidsoederberg/stock-data.js.svg' alt='Build status' /></a>
- <a href='https://coveralls.io/github/davidsoederberg/stock-data?branch=master'><img src='https://coveralls.io/repos/github/davidsoederberg/stock-data/badge.svg?branch=master' alt='Coverage Status' /></a>
+  <a href='https://coveralls.io/github/davidsoederberg/stock-data.js'><img src='https://coveralls.io/repos/github/davidsoederberg/stock-data.js/badge.svg' alt='Coverage Status' /></a>
 </p>
 
 
@@ -15,9 +15,9 @@
 
 ## Features
 
-- Real time data
-- Historical data
-- Get data from multiple symbols at the same time (historical data is WIP)
+- Real time data (multiple stocks at a time)
+- Historical data 
+- Historical data from one day (multiple stocks at a time)
 - Manipulate your data using options
 - Forex data (WIP)
 - Intraday Data (WIP)
@@ -46,7 +46,7 @@ const stockdata = require('stock-data.js');
 #### Real time data
 
 ```js
-// Get the real time price and additional data from AAPL (Apple)
+// Get the real time price and additional data from AAPL
 stockdata.realtime({
     symbols: 'AAPL',
     API_TOKEN: process.env.TOKEN,
@@ -60,7 +60,7 @@ stockdata.realtime({
 ```
 
 ```js
-// Get the real time price and additional data from AAPL, MSFT and TSLA (Apple, Microsoft and Tesla)
+// Get the real time price and additional data from AAPL, MSFT and TSLA
 stockdata.realtime({
     symbols: ['AAPL', 'MSFT', 'TSLA'],
     API_TOKEN: process.env.TOKEN,
@@ -75,7 +75,7 @@ stockdata.realtime({
 #### Historical data
 
 ```js
-// Get historical data for AAPL (Apple) using options to only get data from the year 2018
+// Get historical data for AAPL using options to only get data from the year 2018
 stockdata.historical({
   symbol: 'AAPL',
   API_TOKEN: process.env.TOKEN,
@@ -85,13 +85,30 @@ stockdata.historical({
   }
 })
   .then(response => {
-    console.log(response);
+    ...
   })
   .catch(error => {
-    console.log(error);
+    ...
   });
 ```
+#### Historical data: single day
 
+```js
+// Get the historical data of AAPL and Microsoft from the date 2018-01-02
+stockdata.historicalDay({
+  symbols: ['AAPL', 'MSFT'],
+  API_TOKEN: process.env.TOKEN,
+  options: {
+    date: '2018-01-02'
+  }
+})
+  .then(response => {
+    ...
+  })
+  .catch(error => {
+    ...
+  });
+```
 ## Contributing
 
 WIP
