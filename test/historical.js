@@ -15,7 +15,7 @@ describe('testing historical function', () => {
   it('should be rejected with error because API_TOKEN is invalid', () => {
     expect(historical({ symbols: ['AAPL', 'MSFT', 'HSBA.L'], API_TOKEN: '123' })).to.be.rejectedWith(Error);
   });
-  it('should be rejected with error because a symbol is not provided', () => {
+  it('should be rejected with error because API_TOKEN is not provided', () => {
     expect(historical({ symbol: 'AAPL' })).to.be.rejectedWith(Error);
   });
   it('should return historical data of one stock without error', async () => {
