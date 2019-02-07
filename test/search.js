@@ -6,7 +6,7 @@ require('dotenv').config();
 chai.use(chaiAsPromised);
 const { expect } = chai;
 
-describe('testing search function', () => {
+describe('testing util', () => {
   it('should be rejected with error because a symbol is not provided', () => {
     expect(search({ API_TOKEN: 'DEMO' })).to.be.rejectedWith(Error);
   });
