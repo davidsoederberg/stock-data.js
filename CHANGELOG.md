@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/davidsoederberg/stock-data.js/compare/v1.1.0...v1.2.0) (2019-02-07)
+
+
+### Features
+
+* search, intraday and forex ([94c9325](https://github.com/davidsoederberg/stock-data.js/commit/94c9325))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2019-02-07)
 
