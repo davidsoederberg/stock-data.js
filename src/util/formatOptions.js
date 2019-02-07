@@ -10,7 +10,7 @@ function validDate(date) {
 function checkCorrectOptions(options) {
   const {
     date_from, date_to, sort, formatted, date,
-    search_by, limit, sort_by, sort_order
+    search_by, limit, sort_by, sort_order, interval, range
   } = options;
   if (date_from !== undefined && !validDate(date_from)) {
     throw new Error(`date_from ${DATE_ERROR} ${VISIT}`);
@@ -30,7 +30,7 @@ function checkCorrectOptions(options) {
   if (search_by !== undefined && ['symbol,name', 'symbol', 'name'].indexOf(search_by) === -1) {
     throw new Error(`search_by has not any of the valid options. Use [symbol,name], name, symbol ${VISIT}`);
   }
-  if (limit !== undefined && (limit < 0 || limit > 501)) {
+  if (limit !== undefined && (Number(limit) < 1 || Number(limit) > 500)) {
     throw new Error(`limit value should be between 1-500 ${VISIT}`);
   }
   if (sort_by !== undefined && ['symbol', 'name', 'currency', 'stock_exchange_long', 'stock_exchange_short', 'market_cap', 'volume', 'change_pct'].indexOf(sort_by) === -1) {
@@ -38,6 +38,12 @@ function checkCorrectOptions(options) {
   }
   if (sort_order !== undefined && ['desc', 'asc'].indexOf(sort_order) === -1) {
     throw new Error(`sort_order has not any of the valid options. Use desc, asc. ${VISIT}`);
+  }
+  if (interval !== undefined && [1, 2, 5, 60].indexOf(Number(interval)) === -1) {
+    throw new Error(`interval has not any of the valid options. Use 1, 2, 5, 60. ${VISIT}`);
+  }
+  if (range !== undefined && (Number(range) < 1 || Number(range) > 30)) {
+    throw new Error(`range value should be between 1-30 ${VISIT}`);
   }
 }
 
@@ -52,7 +58,7 @@ function formatOptions(options) {
     throw error;
   }
   const {
-    date_from, date_to, sort, formatted, date,
+    date_from, date_to, sort, formatted, date, interval, range,
     search_by, stock_exchange, currency, limit, page, sort_by, sort_order
   } = options;
   query += date_from !== undefined ? `date_from=${date_from}&` : '';
@@ -67,6 +73,8 @@ function formatOptions(options) {
   query += sort_order !== undefined ? `sort_order=${sort_order}&` : '';
   query += date !== undefined ? `date=${date}&` : '';
   query += page !== undefined ? `page=${page}&` : '';
+  query += interval !== undefined ? `interval=${interval}&` : '';
+  query += range !== undefined ? `range=${range}&` : '';
   return query;
 }
 

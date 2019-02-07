@@ -113,5 +113,20 @@ describe('testing util functions', () => {
     it('should return a query string because page is valid', () => {
       expect(formatOptions({ page: '1' })).to.be.equal('&page=1&');
     });
+    it('should return a query string because range is valid', () => {
+      expect(formatOptions({ range: '1' })).to.be.equal('&range=1&');
+    });
+    it('should return an error because range is invalid', () => {
+      expect(() => formatOptions({ range: '40' })).to.throw(Error);
+    });
+    it('should return a query string because interval is valid', () => {
+      expect(formatOptions({ interval: 5 })).to.be.equal('&interval=5&');
+    });
+    it('should return a query string because interval is valid', () => {
+      expect(formatOptions({ interval: '60' })).to.be.equal('&interval=60&');
+    });
+    it('should return an error because interval is invalid', () => {
+      expect(() => formatOptions({ interval: '10' })).to.throw(Error);
+    });
   });
 });
