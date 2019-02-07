@@ -18,10 +18,10 @@
 - Real time data (multiple stocks at a time)
 - Historical data 
 - Historical data from one day (multiple stocks at a time)
+- Intraday Data
+- Search
+- Forex data (realtime, historical)
 - Manipulate your data using options
-- Forex data (WIP)
-- Intraday Data (WIP)
-- Search (WIP)
 
 ## Installing
 
@@ -107,6 +107,93 @@ stockdata.historicalDay({
   })
   .catch(error => {
     ...
+  });
+```
+#### Intraday
+
+```js
+// Get the prices of AAPL with 1 min interval the last 5 days
+stockdata.intraday({
+  symbol: 'AAPL',
+  API_TOKEN: process.env.TOKEN,
+  options: {
+    interval: '1',
+    range: '5'
+  }
+})
+  .then(response => {
+    ...
+  })
+  .catch(error => {
+    ...
+  });
+```
+
+#### Search
+
+```js
+// Searching for Apple
+stockdata.search({
+  search_term: 'Apple',
+  API_TOKEN: process.env.TOKEN,
+})
+  .then(response => {
+    ...
+  })
+  .catch(error => {
+    ...
+  });
+```
+
+### Forex
+
+##### Real time data
+
+```js
+// Get the realtime values of USD
+stockdata.forex.realtime({
+  base: 'USD',
+  API_TOKEN: process.env.TOKEN,
+})
+  .then(response => {
+    ...
+  })
+  .catch(error => {
+    ...
+  });
+```
+##### Historical data
+
+```js
+// Get the historical values between USD and GBP
+stockdata.forex.historical({
+  base: 'USD',
+  convert_to: 'GBP',
+  API_TOKEN: process.env.TOKEN,
+})
+  .then(response => {
+    ...
+  })
+  .catch(error => {
+    ...
+  });
+```
+##### Historical data: single day
+
+```js
+// Get the historical values from 2018-01-01 of USD
+stockdata.forex.historicalDay({
+  base: 'USD',
+  API_TOKEN: process.env.TOKEN,
+  options: {
+    date: '2018-01-01',
+  }
+})
+  .then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log(error);
   });
 ```
 ## Contributing
