@@ -19,10 +19,15 @@ describe('testing util functions', () => {
   });
   describe('testing makeQueries', () => {
     it('should return array with one string', () => {
-      expect(makeQueries('AAPL')).to.be.eventually.deep.equal(['AAPL']);
+      expect(makeQueries('AAPL'), 5).to.be.eventually.deep.equal(['AAPL']);
     });
-    it('should return array with 3 in length', () => {
-      expect(makeQueries(['AAPL', 'MSFT', 'HSBA.L', 'AZA.ST', 'LEO.ST', 'AMZN', 'TSLA', 'SKA-B.ST', 'NDA-SE.ST', 'DBX', 'SPOT'])).to.be.eventually.be.length(3);
+    it('should return array with 3 in length', async () => {
+      const data = await makeQueries(['AAPL', 'MSFT', 'HSBA.L', 'AZA.ST', 'LEO.ST', 'AMZN', 'TSLA', 'SKA-B.ST', 'NDA-SE.ST', 'DBX', 'SPOT'], 5);
+      expect(data).to.be.length(3);
+    });
+    it('should return array with 3 in length', async () => {
+      const data = await makeQueries(['AAPL', 'MSFT', 'HSBA.L', 'AZA.ST', 'LEO.ST', 'AMZN', 'TSLA', 'SKA-B.ST', 'NDA-SE.ST', 'DBX', 'SPOT'], 2);
+      expect(data).to.be.length(6);
     });
   });
   describe('testing formatOptions', () => {
@@ -37,6 +42,12 @@ describe('testing util functions', () => {
     });
     it('should return an error because date_from is invalid', () => {
       expect(() => formatOptions({ date_to: '2019-01' })).to.throw(Error);
+    });
+    it('should return a query string because date_from is valid', () => {
+      expect(formatOptions({ date: '2019-01-01' })).to.be.equal('&date=2019-01-01&');
+    });
+    it('should return an error because date_from is invalid', () => {
+      expect(() => formatOptions({ date: '2019-01' })).to.throw(Error);
     });
     it('should return a query string because sort is valid (newest)', () => {
       expect(formatOptions({ sort: 'newest' })).to.be.equal('&sort=newest&');
@@ -69,10 +80,5 @@ describe('testing util functions', () => {
         formatted: true, date_from: '2019-01-01', date_to: '2019-01-02', sort: 'descending'
       })).to.throw(Error);
     });
-    // sort valid
-    // sort invalid
-    // formatted valid
-    // formatted invalid
-    // testing multiple
   });
 });
