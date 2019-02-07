@@ -80,5 +80,53 @@ describe('testing util functions', () => {
         formatted: true, date_from: '2019-01-01', date_to: '2019-01-02', sort: 'descending'
       })).to.throw(Error);
     });
+    it('should return a query string because search_by is valid', () => {
+      expect(formatOptions({ search_by: 'symbol,name' })).to.be.equal('&search_by=symbol,name&');
+    });
+    it('should return an error because search_by is invalid', () => {
+      expect(() => formatOptions({ search_by: 'currency' })).to.throw(Error);
+    });
+    it('should return a query string because limit is valid', () => {
+      expect(formatOptions({ limit: '333' })).to.be.equal('&limit=333&');
+    });
+    it('should return an error because limit is invalid', () => {
+      expect(() => formatOptions({ limit: '502' })).to.throw(Error);
+    });
+    it('should return a query string because sort_by is valid', () => {
+      expect(formatOptions({ sort_by: 'symbol' })).to.be.equal('&sort_by=symbol&');
+    });
+    it('should return an error because sort_by is invalid', () => {
+      expect(() => formatOptions({ sort_by: 'stock_exchange' })).to.throw(Error);
+    });
+    it('should return a query string because sort_order is valid', () => {
+      expect(formatOptions({ sort_order: 'desc' })).to.be.equal('&sort_order=desc&');
+    });
+    it('should return an error because sort_order is invalid', () => {
+      expect(() => formatOptions({ sort_order: 'descending' })).to.throw(Error);
+    });
+    it('should return a query string because stock_exchange is valid', () => {
+      expect(formatOptions({ stock_exchange: 'NYSE' })).to.be.equal('&stock_exchange=NYSE&');
+    });
+    it('should return a query string because currency is valid', () => {
+      expect(formatOptions({ currency: 'usd' })).to.be.equal('&currency=usd&');
+    });
+    it('should return a query string because page is valid', () => {
+      expect(formatOptions({ page: '1' })).to.be.equal('&page=1&');
+    });
+    it('should return a query string because range is valid', () => {
+      expect(formatOptions({ range: '1' })).to.be.equal('&range=1&');
+    });
+    it('should return an error because range is invalid', () => {
+      expect(() => formatOptions({ range: '40' })).to.throw(Error);
+    });
+    it('should return a query string because interval is valid', () => {
+      expect(formatOptions({ interval: 5 })).to.be.equal('&interval=5&');
+    });
+    it('should return a query string because interval is valid', () => {
+      expect(formatOptions({ interval: '60' })).to.be.equal('&interval=60&');
+    });
+    it('should return an error because interval is invalid', () => {
+      expect(() => formatOptions({ interval: '10' })).to.throw(Error);
+    });
   });
 });
