@@ -16,7 +16,6 @@ yarn.lock
 .idea/
 
 # project files
-src
 test
 CHANGELOG.md
 .travis.yml
