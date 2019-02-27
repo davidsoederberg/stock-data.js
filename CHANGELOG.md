@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/davidsoederberg/stock-data.js/compare/v1.2.0...v1.2.1) (2019-02-27)
+
+
+### Bug Fixes
+
+* src folder not in npm-package ([fbec0ed](https://github.com/davidsoederberg/stock-data.js/commit/fbec0ed))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/davidsoederberg/stock-data.js/compare/v1.1.0...v1.2.0) (2019-02-07)
 
