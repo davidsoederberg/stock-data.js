@@ -1,6 +1,6 @@
 {
   "name": "stock-data.js",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Easy to use stock market API for Node.js using WorldTradingData as source.",
   "main": "./lib/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "lint": "eslint src test",
     "build": "cross-env BABEL_ENV=production babel src --out-dir lib",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run clean && npm run lint && npm run test",
+    "prepublishOnly": "npm run clean && npm run lint && npm run test && npm run build",
     "release": "standard-version"
   },
   "repository": {
