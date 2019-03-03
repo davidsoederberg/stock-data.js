@@ -198,7 +198,7 @@ stockdata.forex.historicalDay({
 ```
 ## Contributing
 
-WIP
+To run all tests you need an API-key from WorldTradingData. You can get a key by creating an account for free. Create a file called .env and write this line: ```API_TOKEN_TEST=[Your key]```
 
 ## Disclaimer
 
