@@ -1,3 +1,5 @@
+# API HAS BEEN SHUTDOWN
+
 <h3 align='center'>Stock-data.js</h3>
 <p align="center">
   Easy to use stock market API for Node.js using WorldTradingData as source.
